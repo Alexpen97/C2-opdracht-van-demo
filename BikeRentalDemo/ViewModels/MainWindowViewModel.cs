@@ -18,6 +18,11 @@ namespace BikeRentalDemo.ViewModels
 
         public ObservableCollection<Reservation> Reservations { get; set; }
 
+        public Store SelectedStore { get; set; }
+        public Bike SelectedBike { get; set; }
+        public Customer SelectedCustomer { get; set; }
+
+
         public ICommand OpenStoreClick { get; set; } // De koppeling met de Command-binding van de click op een Store in het overzicht
         public ICommand DeleteStoreClick { get; set; } // De koppeling met de Command-binding van de Delete-knoppen in het Store-overzicht
         public ICommand OpenNewStoreClick { get; set; } // De koppeling met de Command-binding van de "+"-knop
@@ -33,6 +38,8 @@ namespace BikeRentalDemo.ViewModels
         public ICommand BikesAdminClick { get; set; }
         public ICommand ReservationsAdminClick { get; set; }
 
+        public ICommand CreateReservationClick { get; set; }
+             
         public MainWindowViewModel() // De constructor van de Class
         {
             db.Bikes.Load();
@@ -52,6 +59,7 @@ namespace BikeRentalDemo.ViewModels
             DeleteCustomerClick = new RelayCommand(DeleteCustomer);
 
             CreateNewCustomerClick = new RelayCommand(CreateNewCustomer);
+            CreateReservationClick = new RelayCommand(CreateReservation);
            
            
             CustomersAdminClick = new RelayCommand(OpenCustomerAdmin);
@@ -132,8 +140,20 @@ namespace BikeRentalDemo.ViewModels
             view.DataContext = VM;
             view.Show();
         }
+        public void CreateReservation(object o)
+        {
+            Reservation reservation = new Reservation();
+            reservation.Customer = SelectedCustomer;
+            CreateReservationViewModel VM = new CreateReservationViewModel(reservation,db);
 
-       
+            CreateReservation view = new CreateReservation();
+            view.DataContext = VM;
+            view.Show();
+            
+
+
+        }
+
             /* Functie om de applicatie alvast te vullen met test-data
              * Dit gaan we later vervangen door Databases en Database Seeding
              */

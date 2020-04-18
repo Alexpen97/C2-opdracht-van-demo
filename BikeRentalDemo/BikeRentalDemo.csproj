@@ -89,11 +89,15 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Reservation.cs" />
     <Compile Include="ViewModels\BikesEditViewModel.cs" />
+    <Compile Include="ViewModels\CreateReservationViewModel.cs" />
     <Compile Include="ViewModels\CustomersEditViewModel.cs" />
     <Compile Include="ViewModels\ReservationEditViewModel.cs" />
     <Compile Include="ViewModels\StoresEditViewModel.cs" />
     <Compile Include="Views\BikesEdit.xaml.cs">
       <DependentUpon>BikesEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateReservation.xaml.cs">
+      <DependentUpon>CreateReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomersEdit.xaml.cs">
       <DependentUpon>CustomersEdit.xaml</DependentUpon>
@@ -105,6 +109,10 @@
       <DependentUpon>StoresEdit.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\BikesEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
