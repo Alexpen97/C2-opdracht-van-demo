@@ -1,0 +1,115 @@
+﻿<Window x:Class="BikeRentalDemo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Bike Rental App version 1.0" Height="456.211" Width="1445.319">
+    <Grid>
+        <materialDesign:ColorZone Padding="10 5" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid">
+            <Label Content="Windesheim BikeRental App" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontSize="32"/>
+        </materialDesign:ColorZone>
+
+        <!-- Het ItemsControl is vergelijkbaar met een ListBox, behalve dat je de items niet kunt selecteren en er geen scrollbar is
+             Misschien handig om toch een scroll-functionaliteit in te bouwen
+             Deze lijst is gebind aan de Stores, dus we tonen hier de totale lijst met winkels
+             Het Template bepaalt hoe de items eruit zien
+        -->
+        <ItemsControl ItemsSource="{Binding Stores}" HorizontalAlignment="Left" Height="260" Margin="24,72,0,0" VerticalAlignment="Top" Width="261">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    
+                    <!-- De lijst is gebind aan Stores, dat wil dus zeggen dat een indiviueel item
+                         gebind is aan een individuele Store. Je kunt dus van een Store z'n naam laten zien, of de hoeveelheid fietsen
+                         Maar de Command en DeleteCommand -bindings gaan dus ook op zoek naar een functie IN de class Store (net zoals ze
+                         op zoek gaan naar Name of Bikes.Count IN een Store. OpenStoreClick en DeleteStoreClick vind je echter niet in een Store
+                         maar in het StoreEditViewModel. Via RelativeSource gaan we dan ook op zoek naar een ander element (gekozen voor ItemsControl,
+                         we hadden ook Window kunnen kiezen) en via zijn DataContext komen we uiteindelijk terug bij ons ViewModel waar we OpenStoreClick en
+                         DeleteStoreClick kunnen vinden.
+                         Als laatste geven we via CommandParameter en DeleteCommandParameter de aangeklikte store door aan de RelayCommands, 
+                         via de object-parameter
+                    -->
+                    <materialDesign:Chip Content="{Binding Address}" 
+                                         Margin="10" 
+                                         IsDeletable="True"
+                                         Command="{Binding DataContext.OpenStoreClick, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                         DeleteCommand="{Binding DataContext.DeleteStoreClick, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                         CommandParameter="{Binding}" 
+                                         DeleteCommandParameter="{Binding}">
+                        <materialDesign:Chip.Icon>
+                            <TextBlock Text="{Binding Bikes.Count}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"></TextBlock>
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ItemsControl ItemsSource="{Binding Customers}" HorizontalAlignment="Left" Height="260" Margin="667,67,0,0" VerticalAlignment="Top" Width="261">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Chip Content="{Binding Name}" 
+                        Margin="10" 
+                        IsDeletable="True"
+                        Command="{Binding DataContext.OpenCustomerClick, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" 
+                        DeleteCommand="{Binding DataContext.DeleteCustomerClick, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" 
+                        CommandParameter="{Binding}" 
+                        DeleteCommandParameter="{Binding}">
+                    </materialDesign:Chip>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button Command="{Binding CreateNewCustomerClick}" Style="{StaticResource MaterialDesignFloatingActionButton}" ToolTip="Add store" Margin="788,393,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" RenderTransformOrigin="-2.493,1.503">
+            <materialDesign:PackIcon Kind="Plus" Height="30" Width="30"/>
+        </Button>
+        <Button Command="{Binding CustomersAdminClick}" Content="Edit Customers" HorizontalAlignment="Left" Margin="740,352,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.553,1.967"/>
+        <Button Command="{Binding StoresAdminClick}" Content="Edit Stores" HorizontalAlignment="Left" Margin="107,352,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding BikesAdminClick}" Content="Edit Bikes" HorizontalAlignment="Left" Margin="420,352,0,0" VerticalAlignment="Top" Width="92"/>
+        <ItemsControl ItemsSource="{Binding Bikes}" HorizontalAlignment="Left" Height="260" Margin="339,72,0,0" VerticalAlignment="Top" Width="261">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+
+                    <!-- De lijst is gebind aan Stores, dat wil dus zeggen dat een indiviueel item
+                         gebind is aan een individuele Store. Je kunt dus van een Store z'n naam laten zien, of de hoeveelheid fietsen
+                         Maar de Command en DeleteCommand -bindings gaan dus ook op zoek naar een functie IN de class Store (net zoals ze
+                         op zoek gaan naar Name of Bikes.Count IN een Store. OpenStoreClick en DeleteStoreClick vind je echter niet in een Store
+                         maar in het StoreEditViewModel. Via RelativeSource gaan we dan ook op zoek naar een ander element (gekozen voor ItemsControl,
+                         we hadden ook Window kunnen kiezen) en via zijn DataContext komen we uiteindelijk terug bij ons ViewModel waar we OpenStoreClick en
+                         DeleteStoreClick kunnen vinden.
+                         Als laatste geven we via CommandParameter en DeleteCommandParameter de aangeklikte store door aan de RelayCommands, 
+                         via de object-parameter
+                    -->
+                    <materialDesign:Chip Content="{Binding Type}" 
+                        Margin="10" 
+                        IsDeletable="True"
+                        DeleteCommand="{Binding DataContext.DeleteBikeClick, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" 
+                        CommandParameter="{Binding}" 
+                        DeleteCommandParameter="{Binding}">
+                        <materialDesign:Chip.Icon>
+                            <TextBlock Text="{Binding Bikes.Count}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ItemsControl ItemsSource="{Binding Reservations}" HorizontalAlignment="Left" Height="260" Margin="997,72,0,0" VerticalAlignment="Top" Width="261">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Chip Content="{Binding Customer.Name}" 
+                        Margin="10" 
+                        IsDeletable="True"
+                        DeleteCommand="{Binding DataContext.DeleteReservationClick, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" 
+                        CommandParameter="{Binding}" 
+                        DeleteCommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button Command="{Binding ReservationsAdminClick}" Content="Edit Customers" HorizontalAlignment="Left" Margin="1072,352,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.553,1.967"/>
+    </Grid>
+</Window>
