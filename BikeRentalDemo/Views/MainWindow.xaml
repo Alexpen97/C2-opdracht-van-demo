@@ -110,6 +110,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Command="{Binding ReservationsAdminClick}" Content="Edit Customers" HorizontalAlignment="Left" Margin="1072,352,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.553,1.967"/>
+        <Button Command="{Binding ReservationsAdminClick}" Content="Edit Reservations" HorizontalAlignment="Left" Margin="1072,352,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.553,1.967"/>
     </Grid>
 </Window>
