@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
-using System.Windows;
 using BikeRentalDemo.Model;
 using BikeRentalDemo.Classes;
-using BikeRentalDemo.ViewModels;
 using System.Collections.Generic;
 
 namespace BikeRentalDemo.ViewModels
@@ -21,7 +19,7 @@ namespace BikeRentalDemo.ViewModels
 
         public Store DropOffStore { get; set; }
         public Store PickUpStore { get; set; }
-        public Bike SelectedBike { get; set; }
+        public ObservableCollection<Bike> SelectedBike { get; set; }
        
         public DateTime EndDate { get; set; }
         public DateTime StartDate { get; set; }
@@ -41,15 +39,18 @@ namespace BikeRentalDemo.ViewModels
             Bikes = Db.Bikes.Local;
             Stores = Db.Stores.Local;
             Reservations = Db.Reservations.Local;
+            
         }
 
         private void CreateReservation(object o)
         {
+
+            
             Reservation.DropOff = DropOffStore;
             Reservation.PickUp = PickUpStore;
-            Reservation.StartDate = new DateTime(StartDate.ToShortDateString);
-            Reservation.EndDate = new DateTime(2015, 11, 25);
-            Reservation.Bikes = BikesList;
+            Reservation.StartDate = new DateTime(2011, 11, 11);
+            Reservation.EndDate = new DateTime(2011,11,11);
+            Reservation.Bikes = new List<Bike>();
 
             Db.Reservations.Add(Reservation);
             Db.SaveChanges();

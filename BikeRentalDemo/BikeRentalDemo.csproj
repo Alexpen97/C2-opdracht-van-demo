@@ -83,6 +83,14 @@
     <Compile Include="Migrations\202004171309062_third.designer.cs">
       <DependentUpon>202004171309062_third.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004181018383_Fourth.cs" />
+    <Compile Include="Migrations\202004181018383_Fourth.designer.cs">
+      <DependentUpon>202004181018383_Fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004190827211_fifth.cs" />
+    <Compile Include="Migrations\202004190827211_fifth.designer.cs">
+      <DependentUpon>202004190827211_fifth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BikeRentalDBModel.cs" />
     <Compile Include="Model\BikeRentalModel.cs" />
@@ -167,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004171309062_third.resx">
       <DependentUpon>202004171309062_third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004181018383_Fourth.resx">
+      <DependentUpon>202004181018383_Fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004190827211_fifth.resx">
+      <DependentUpon>202004190827211_fifth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

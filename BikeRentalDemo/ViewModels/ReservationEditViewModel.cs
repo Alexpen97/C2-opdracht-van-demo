@@ -11,7 +11,7 @@ namespace BikeRentalDemo.ViewModels
 {
     class ReservationEditViewModel
     {
- private BikeRentalDBModel Db;
+        private BikeRentalDBModel Db;
         public ObservableCollection<Reservation> Reservations { get; set; }
         public RelayCommand SaveClick { get; set; }
         public RelayCommand CreateReservationClick { get; set; }

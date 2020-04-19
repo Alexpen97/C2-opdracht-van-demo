@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="StartDate" HorizontalAlignment="Left" Margin="221,98,0,0" VerticalAlignment="Top" Height="24" Width="71"/>
         <Label Content="{Binding Reservation}" HorizontalAlignment="Left" Margin="121,32,0,0" VerticalAlignment="Top" Height="24" Width="71"/>
-        <ListBox ItemsSource="{Binding Bikes}" SelectedItem="{Binding SelectedBike}" HorizontalAlignment="Left" Height="156" Margin="565,224,0,0" VerticalAlignment="Top" Width="142"/>
+        <ListBox SelectionMode="Multiple" ItemsSource="{Binding Bikes}" SelectedItem="{Binding SelectedBike}" HorizontalAlignment="Left" Height="156" Margin="565,224,0,0" VerticalAlignment="Top" Width="142"/>
         <ListBox ItemsSource="{Binding Stores}" SelectedItem="{Binding DropOffStore}" HorizontalAlignment="Left" Height="156" Margin="389,224,0,0" VerticalAlignment="Top" Width="142"/>
         <ListBox ItemsSource="{Binding Stores}" SelectedItem="{Binding PickUpStore}" HorizontalAlignment="Left" Height="156" Margin="188,224,0,0" VerticalAlignment="Top" Width="142"/>
         <Label Content="Pickup Store" HorizontalAlignment="Left" Margin="211,195,0,0" VerticalAlignment="Top" Height="24" Width="81"/>

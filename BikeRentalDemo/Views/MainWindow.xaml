@@ -12,7 +12,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Bike Rental App version 1.0" Height="456.211" Width="1445.319">
+        Title="Bike Rental App version 1.0" Height="475.077" Width="1445.319">
     <Grid>
         <materialDesign:ColorZone Padding="10 5" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid">
             <Label Content="Windesheim BikeRental App" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontSize="32"/>
@@ -23,16 +23,21 @@
              Deze lijst is gebind aan de Stores, dus we tonen hier de totale lijst met winkels
              Het Template bepaalt hoe de items eruit zien
         -->
-        <Button Command="{Binding CreateNewCustomerClick}" Style="{StaticResource MaterialDesignFloatingActionButton}" ToolTip="Add store" Margin="788,393,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" RenderTransformOrigin="-2.493,1.503">
-            <materialDesign:PackIcon Kind="Plus" Height="30" Width="30"/>
-        </Button>
-        <Button Command="{Binding CustomersAdminClick}" Content="Edit Customers" HorizontalAlignment="Left" Margin="740,352,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.553,1.967"/>
-        <Button Command="{Binding StoresAdminClick}" Content="Edit Stores" HorizontalAlignment="Left" Margin="107,352,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
-        <Button Command="{Binding BikesAdminClick}" Content="Edit Bikes" HorizontalAlignment="Left" Margin="420,352,0,0" VerticalAlignment="Top" Width="92"/>
-        <Button Command="{Binding ReservationsAdminClick}" Content="Edit Reservations" HorizontalAlignment="Left" Margin="1072,331,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.553,1.967"/>
-        <ListBox ItemsSource="{Binding Stores}" SelectedItem="{Binding SelectedStore}" HorizontalAlignment="Left" Height="226" Margin="37,85,0,0" VerticalAlignment="Top" Width="253"/>
-        <ListBox ItemsSource="{Binding Bikes}" SelectedItem="{Binding SelectedBike}" HorizontalAlignment="Left" Height="226" Margin="347,85,0,0" VerticalAlignment="Top" Width="253"/>
-        <ListBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" HorizontalAlignment="Left" Height="226" Margin="689,85,0,0" VerticalAlignment="Top" Width="253"/>
-        <Button Command="{Binding CreateReservationClick}" Content="Make Reservation " HorizontalAlignment="Left" Margin="1072,383,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.553,1.967"/>
+        <Button Command="{Binding EditStoresClick}" Content="Edit Stores" HorizontalAlignment="Left" Margin="107,362,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <ListBox ItemsSource="{Binding Stores}" DisplayMemberPath="Address" SelectedItem="{Binding SelectedStore}" HorizontalAlignment="Left" Height="226" Margin="37,85,0,0" VerticalAlignment="Top" Width="253"/>
+        <ListBox ItemsSource="{Binding Bikes}" DisplayMemberPath="Type" SelectionMode="Multiple" SelectedItem="{Binding SelectedBike}" HorizontalAlignment="Left" Height="226" Margin="347,85,0,0" VerticalAlignment="Top" Width="253"/>
+        <ListBox ItemsSource="{Binding Customers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCustomer}" HorizontalAlignment="Left" Height="226" Margin="689,85,0,0" VerticalAlignment="Top" Width="253"/>
+        <Button Command="{Binding CreateStoreClick}" Content="Add Stores" HorizontalAlignment="Left" Margin="107,325,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding DeleteStoreClick}" Content="Delete Stores" HorizontalAlignment="Left" Margin="107,399,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding EditBikesClick}" Content="Edit Bike" HorizontalAlignment="Left" Margin="430,362,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding CreateBikeClick}" Content="Add Bike" HorizontalAlignment="Left" Margin="430,325,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding DeleteBikeClick}" Content="Delete Bike" HorizontalAlignment="Left" Margin="430,399,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding EditCustomersClick}" Content="Edit Customer" HorizontalAlignment="Left" Margin="774,362,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding CreateCustomerClick}" Content="Add Customer" HorizontalAlignment="Left" Margin="774,325,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding DeleteCustomerClick}" Content="Delete Customer" HorizontalAlignment="Left" Margin="774,399,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding EditReservationsClick}" Content="Edit Reservation" HorizontalAlignment="Left" Margin="1176,362,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding CreateReservationClick}" Content="Add Reservation" HorizontalAlignment="Left" Margin="1176,325,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding DeleteReservationClick}" Content="Delete Reservation" HorizontalAlignment="Left" Margin="1176,399,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.147,0.517"/>
+        <ListBox ItemsSource="{Binding Reservations}" DisplayMemberPath="StartDate" SelectedItem="{Binding SelectedReservation}" HorizontalAlignment="Left" Height="226" Margin="1101,85,0,0" VerticalAlignment="Top" Width="253"/>
     </Grid>
 </Window>

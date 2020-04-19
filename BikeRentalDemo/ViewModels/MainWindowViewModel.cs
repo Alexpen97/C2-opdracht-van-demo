@@ -21,24 +21,26 @@ namespace BikeRentalDemo.ViewModels
         public Store SelectedStore { get; set; }
         public Bike SelectedBike { get; set; }
         public Customer SelectedCustomer { get; set; }
+        public Reservation SelectedReservation { get; set; }
 
 
-        public ICommand OpenStoreClick { get; set; } // De koppeling met de Command-binding van de click op een Store in het overzicht
+       
         public ICommand DeleteStoreClick { get; set; } // De koppeling met de Command-binding van de Delete-knoppen in het Store-overzicht
-        public ICommand OpenNewStoreClick { get; set; } // De koppeling met de Command-binding van de "+"-knop
-        public ICommand OpenBikeAdminClick { get; set; } // De koppeling met de Command-binding van de "fietsenbeheer"-knop
+        public ICommand CreateStoreClick { get; set; } // De koppeling met de Command-binding van de "+"-knop
+        public ICommand EditStoresClick { get; set; }
 
-        public ICommand OpenCustomerClick { get; set; }
         public ICommand DeleteCustomerClick { get; set; }
+        public ICommand EditCustomersClick { get; set; }
+        public ICommand CreateCustomerClick { get; set; }
 
-        public ICommand CreateNewCustomerClick { get; set; }
+        public ICommand EditBikesClick { get; set; }
+        public ICommand DeleteBikeClick { get; set; }
+        public ICommand CreateBikeClick { get; set; }
 
-        public ICommand CustomersAdminClick { get; set; }
-        public ICommand StoresAdminClick { get; set; }
-        public ICommand BikesAdminClick { get; set; }
-        public ICommand ReservationsAdminClick { get; set; }
 
+        public ICommand EditReservationsClick { get; set; }
         public ICommand CreateReservationClick { get; set; }
+        public ICommand DeleteReservationClick { get; set; }
              
         public MainWindowViewModel() // De constructor van de Class
         {
@@ -57,59 +59,82 @@ namespace BikeRentalDemo.ViewModels
            
             DeleteStoreClick = new RelayCommand(DeleteStore); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder            OpenBikeAdminClick = new RelayCommand(OpenBikeAdmin); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder
             DeleteCustomerClick = new RelayCommand(DeleteCustomer);
+            DeleteBikeClick = new RelayCommand(DeleteBike);
+            DeleteReservationClick = new RelayCommand(DeleteReservation);
 
-            CreateNewCustomerClick = new RelayCommand(CreateNewCustomer);
+            CreateCustomerClick = new RelayCommand(CreateCustomer);
             CreateReservationClick = new RelayCommand(CreateReservation);
+            CreateBikeClick = new RelayCommand(CreateBike);
+            CreateStoreClick = new RelayCommand(CreateStore);
+
            
            
-            CustomersAdminClick = new RelayCommand(OpenCustomerAdmin);
-            StoresAdminClick = new RelayCommand(OpenStoreAdmin);
-            BikesAdminClick = new RelayCommand(OpenBikeAdmin);
-            ReservationsAdminClick = new RelayCommand(OpenReservationAdmin);
+            EditCustomersClick = new RelayCommand(OpenCustomerAdmin);
+            EditStoresClick = new RelayCommand(OpenStoreAdmin);
+            EditBikesClick = new RelayCommand(OpenBikeAdmin);
+            EditReservationsClick = new RelayCommand(OpenReservationAdmin);
 
         }
 
         public void DeleteStore(object store)
         {
-            /* In de View hebben we naast de DeleteCommand-binding ook een DeleteCommandParameter-binding. 
-             * Die hebben we gebind aan de store waar op geklikt wordt. Die wordt dan als Parameter meegegeven 
-             * aan deze functie (in "object store"). Wij weten dat het een Store is,
-             * dus we moeten 'm nog casten van Object naar Store
-             */
-            Store clickedStore = store as Store;
-
-            db.Stores.Remove(db.Stores.Find(clickedStore.ID));
-            Stores.Remove(clickedStore); // Haal de Store weg uit de lijst met Stores
+            if (SelectedStore != null) { 
+            db.Stores.Remove(db.Stores.Find(SelectedStore.ID));
             db.SaveChanges();
         }
-        public void OpenCustomer(object customer)
-        {
-            /*
-            Customer clickedCustomer = customer as Customer;
-
-            CustomerEditViewModel vm = new CustomerEditViewModel { customer = clickedCustomer };
-            CustomerEdit view = new CustomerEdit { DataContext = vm };
-            view.Show();
-
-           */
-
         }
         public void DeleteCustomer(object customer)
         {
-            Customer clickedCustomer = customer as Customer;
-           db.Customers.Remove(db.Customers.Find(clickedCustomer.ID));
-            Customers.Remove(clickedCustomer);
+            if(SelectedCustomer != null) { 
+            db.Customers.Remove(db.Customers.Find(SelectedCustomer.ID));
             db.SaveChanges();
-
+         }
         }
-        public void CreateNewCustomer(object o)
+        public void DeleteReservation(object reservation)
         {
-            Customer newcustomer = new Customer();
-            Customers.Add(newcustomer);
-            db.Customers.Add(newcustomer);
+            if(SelectedReservation != null) { 
+            db.Reservations.Remove(db.Reservations.Find(SelectedReservation.ID));
             db.SaveChanges();
+        }
+        }
+        public void DeleteBike(object bike)
+        {
+            if (SelectedBike != null)
+            {
+                db.Bikes.Remove(db.Bikes.Find(SelectedBike.ID));
+                db.SaveChanges();
+            }
+        }
+        public void CreateReservation(object o)
+        {
+            Reservation newReservation = new Reservation();
+            newReservation.Customer = SelectedCustomer;
+            CreateReservationViewModel VM = new CreateReservationViewModel(newReservation, db);
 
-
+            CreateReservation view = new CreateReservation();
+            view.DataContext = VM;
+            view.Show();
+        }
+        public void CreateCustomer(object o)
+        {
+            Customer newCustomer = new Customer();
+            Customers.Add(newCustomer);
+            db.Customers.Add(newCustomer);
+            db.SaveChanges();
+        }
+        public void CreateBike(object o)
+        {
+            Bike newBike = new Bike();
+            Bikes.Add(newBike);
+            db.Bikes.Add(newBike);
+            db.SaveChanges();
+        }
+        public void CreateStore(object o)
+        {
+            Store newStore = new Store();
+            Stores.Add(newStore);
+            db.Stores.Add(newStore);
+            db.SaveChanges();
         }
         public void OpenCustomerAdmin(object o)
         {
@@ -140,19 +165,8 @@ namespace BikeRentalDemo.ViewModels
             view.DataContext = VM;
             view.Show();
         }
-        public void CreateReservation(object o)
-        {
-            Reservation reservation = new Reservation();
-            reservation.Customer = SelectedCustomer;
-            CreateReservationViewModel VM = new CreateReservationViewModel(reservation,db);
-
-            CreateReservation view = new CreateReservation();
-            view.DataContext = VM;
-            view.Show();
-            
 
 
-        }
 
             /* Functie om de applicatie alvast te vullen met test-data
              * Dit gaan we later vervangen door Databases en Database Seeding
