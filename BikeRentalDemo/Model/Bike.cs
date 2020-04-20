@@ -3,19 +3,9 @@
     /* Inheritance hebben we (nog) niet behandeld, maar hier gebruiken we inheritance om
      * alle INotifyPropertyChanged rotzooi weg te stoppen in de class BikeRentalModel
      */
-    public class Bike : BikeRentalModel
+    public class Bike 
     {
-        #region Attributes
-        /* Attributes om de Properties voluit te schrijven en INotifyPropertyChanged te kunnen gebruiken 
-         * Met regions kun je oninteressante code dichtklappen
-         */
-        private Store _inStore;
-        private int _size;
-        private string _brand;
-        private BikeType _type;
-        private BikeGender _gender;
-        private bool _rented;
-        #endregion
+
         public int ID { get; set; }
         public Store InStore { get; set; }
         public BikeType Type { get; set; }

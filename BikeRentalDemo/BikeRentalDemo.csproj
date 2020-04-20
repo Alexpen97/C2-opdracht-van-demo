@@ -116,7 +116,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BikeRentalDBModel.cs" />
-    <Compile Include="Model\BikeRentalModel.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Reservation.cs" />
     <Compile Include="ViewModels\BikesEditViewModel.cs" />
