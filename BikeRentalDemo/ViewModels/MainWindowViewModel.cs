@@ -109,6 +109,7 @@ namespace BikeRentalDemo.ViewModels
         {
             Reservation newReservation = new Reservation();
             newReservation.Customer = SelectedCustomer;
+            newReservation.Bike = SelectedBike;
             CreateReservationViewModel VM = new CreateReservationViewModel(newReservation, db);
 
             CreateReservation view = new CreateReservation();
@@ -125,8 +126,7 @@ namespace BikeRentalDemo.ViewModels
         public void CreateBike(object o)
         {
             Bike newBike = new Bike();
-            Bikes.Add(newBike);
-            db.Bikes.Add(newBike);
+            SelectedStore.Bikes.Add(newBike);
             db.SaveChanges();
         }
         public void CreateStore(object o)
@@ -153,7 +153,7 @@ namespace BikeRentalDemo.ViewModels
         }
         public void OpenBikeAdmin(object o)
         {
-            BikesEditViewModel VM = new BikesEditViewModel(db);
+            BikesEditViewModel VM = new BikesEditViewModel(db,SelectedStore.Bikes);
             BikesEdit view = new BikesEdit();
             view.DataContext = VM;
             view.Show();

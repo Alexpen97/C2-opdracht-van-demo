@@ -17,6 +17,7 @@
         private bool _rented;
         #endregion
         public int ID { get; set; }
+        public Store InStore { get; set; }
         public BikeType Type { get; set; }
         public BikeGender Gender { get; set; }
         public BikeSize Size { get; set; }
@@ -28,11 +29,11 @@
 
     public enum BikeType
     {
-        Mimikyu, Tailow, Starly, Mewtoo
+        Mimikyu, Tailow, Starly, Mewtoo, Pikachu, Fattypatty, Jumpluff, Flaafy, Applin
     }
     public enum BikeGender
     {
-        Male, Female, Grandma
+        Male, Female, Grandma, Grandpa
     }
 
     public enum BikeSize

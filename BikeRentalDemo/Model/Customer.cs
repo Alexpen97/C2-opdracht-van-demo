@@ -16,7 +16,11 @@ namespace BikeRentalDemo.Model
 
         public enum CustomerGender
         {
-            Male, Female
+            Male, Female,Other
+        }
+        public Customer()
+        {
+            Name = "newCustomer";
         }
     }
 }

@@ -15,10 +15,10 @@ namespace BikeRentalDemo.ViewModels
         public ObservableCollection<Bike> Bikes { get; set; }
         public RelayCommand SaveClick { get; set; }
 
-        public BikesEditViewModel(BikeRentalDBModel db)
+        public BikesEditViewModel(BikeRentalDBModel db,ObservableCollection<Bike> bikes)
         {
             Db = db;
-            Bikes = Db.Bikes.Local;
+            Bikes = bikes;
             SaveClick = new RelayCommand(x => db.SaveChanges());
         }
     }

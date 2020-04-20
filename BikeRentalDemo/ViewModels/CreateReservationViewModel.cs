@@ -28,6 +28,8 @@ namespace BikeRentalDemo.ViewModels
 
         public CreateReservationViewModel(Reservation res,BikeRentalDBModel db)
         {
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
             Db = db;
             CreateReservationClick = new RelayCommand(CreateReservation);
             Reservation = res;
@@ -48,10 +50,8 @@ namespace BikeRentalDemo.ViewModels
             
             Reservation.DropOff = DropOffStore;
             Reservation.PickUp = PickUpStore;
-            Reservation.StartDate = new DateTime(2011, 11, 11);
-            Reservation.EndDate = new DateTime(2011,11,11);
-            Reservation.Bikes = new List<Bike>();
-
+            Reservation.StartDate = StartDate;
+            Reservation.EndDate = EndDate;
             Db.Reservations.Add(Reservation);
             Db.SaveChanges();
 
