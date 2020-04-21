@@ -11,7 +11,7 @@ namespace BikeRentalDemo.Model
     {
         public BikeRentalDBModel()
         {
-
+            this.Configuration.ProxyCreationEnabled = false;
         }
         public virtual DbSet<Bike> Bikes { get; set; }
         public virtual DbSet<Store> Stores { get; set; }

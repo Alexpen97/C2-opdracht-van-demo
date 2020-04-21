@@ -38,7 +38,6 @@ namespace BikeRentalDemo.ViewModels
         public ICommand CreateBikeClick { get; set; }
 
 
-        public ICommand EditReservationsClick { get; set; }
         public ICommand CreateReservationClick { get; set; }
         public ICommand DeleteReservationClick { get; set; }
              
@@ -72,7 +71,6 @@ namespace BikeRentalDemo.ViewModels
             EditCustomersClick = new RelayCommand(OpenCustomerAdmin);
             EditStoresClick = new RelayCommand(OpenStoreAdmin);
             EditBikesClick = new RelayCommand(OpenBikeAdmin);
-            EditReservationsClick = new RelayCommand(OpenReservationAdmin);
 
         }
 
@@ -125,9 +123,11 @@ namespace BikeRentalDemo.ViewModels
         }
         public void CreateBike(object o)
         {
+            if(SelectedStore != null) { 
             Bike newBike = new Bike();
             SelectedStore.Bikes.Add(newBike);
             db.SaveChanges();
+}
         }
         public void CreateStore(object o)
         {
@@ -158,19 +158,5 @@ namespace BikeRentalDemo.ViewModels
             view.DataContext = VM;
             view.Show();
         }
-        public void OpenReservationAdmin(object o)
-        {
-            ReservationEditViewModel VM = new ReservationEditViewModel(db);
-            ReservationEdit view = new ReservationEdit();
-            view.DataContext = VM;
-            view.Show();
-        }
-
-
-
-            /* Functie om de applicatie alvast te vullen met test-data
-             * Dit gaan we later vervangen door Databases en Database Seeding
-             */
-
         }
 }

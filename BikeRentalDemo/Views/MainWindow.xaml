@@ -35,14 +35,13 @@
         <Button Command="{Binding EditCustomersClick}" Content="Edit Customer" HorizontalAlignment="Left" Margin="783,467,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="1.147,0.517"/>
         <Button Command="{Binding CreateCustomerClick}" Content="Add Customer" HorizontalAlignment="Left" Margin="783,430,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="1.147,0.517"/>
         <Button Command="{Binding DeleteCustomerClick}" Content="Delete Customer" HorizontalAlignment="Left" Margin="783,504,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="1.147,0.517"/>
-        <Button Command="{Binding EditReservationsClick}" Content="Edit Reservation" HorizontalAlignment="Left" Margin="1174,488,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="1.147,0.517"/>
         <Button Command="{Binding CreateReservationClick}" Content="Add Reservation" HorizontalAlignment="Left" Margin="1174,451,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="1.147,0.517"/>
-        <Button Command="{Binding DeleteReservationClick}" Content="Delete Reservation" HorizontalAlignment="Left" Margin="1174,525,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="1.147,0.517"/>
+        <Button Command="{Binding DeleteReservationClick}" Content="Delete Reservation" HorizontalAlignment="Left" Margin="1174,488,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="1.147,0.517"/>
         <ListBox ItemsSource="{Binding Reservations}" DisplayMemberPath="StartDate" SelectedItem="{Binding SelectedReservation}" HorizontalAlignment="Left" Height="226" Margin="1128,189,0,0" VerticalAlignment="Top" Width="253"/>
         <Label Content="Stores" HorizontalAlignment="Left" Height="29" Margin="155,155,0,0" VerticalAlignment="Top" Width="63"/>
         <Label Content="Bikes" HorizontalAlignment="Left" Height="29" Margin="457,155,0,0" VerticalAlignment="Top" Width="63"/>
         <Label Content="Customers" HorizontalAlignment="Left" Height="29" Margin="801,160,0,0" VerticalAlignment="Top" Width="80"/>
         <Label Content="Reservations" HorizontalAlignment="Left" Height="29" Margin="1203,155,0,0" VerticalAlignment="Top" Width="80"/>
-        <Label Content="To make a reservation, please select a Bike and Customer" HorizontalAlignment="Left" Height="41" Margin="1078,413,0,0" VerticalAlignment="Top" Width="359"/>
+        <Label Content="To make a reservation, please select a Bike and Customer" HorizontalAlignment="Left" Height="41" Margin="1078,421,0,0" VerticalAlignment="Top" Width="359"/>
     </Grid>
 </Window>

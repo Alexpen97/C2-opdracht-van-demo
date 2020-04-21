@@ -114,6 +114,10 @@
     <Compile Include="Migrations\202004201120234_Final.designer.cs">
       <DependentUpon>202004201120234_Final.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004211243365_added virtual propertys.cs" />
+    <Compile Include="Migrations\202004211243365_added virtual propertys.designer.cs">
+      <DependentUpon>202004211243365_added virtual propertys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BikeRentalDBModel.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -121,7 +125,6 @@
     <Compile Include="ViewModels\BikesEditViewModel.cs" />
     <Compile Include="ViewModels\CreateReservationViewModel.cs" />
     <Compile Include="ViewModels\CustomersEditViewModel.cs" />
-    <Compile Include="ViewModels\ReservationEditViewModel.cs" />
     <Compile Include="ViewModels\StoresEditViewModel.cs" />
     <Compile Include="Views\BikesEdit.xaml.cs">
       <DependentUpon>BikesEdit.xaml</DependentUpon>
@@ -131,9 +134,6 @@
     </Compile>
     <Compile Include="Views\CustomersEdit.xaml.cs">
       <DependentUpon>CustomersEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ReservationEdit.xaml.cs">
-      <DependentUpon>ReservationEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StoresEdit.xaml.cs">
       <DependentUpon>StoresEdit.xaml</DependentUpon>
@@ -166,10 +166,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ReservationEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\StoresEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004201120234_Final.resx">
       <DependentUpon>202004201120234_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211243365_added virtual propertys.resx">
+      <DependentUpon>202004211243365_added virtual propertys.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
