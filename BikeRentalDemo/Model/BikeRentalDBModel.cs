@@ -9,7 +9,7 @@ namespace BikeRentalDemo.Model
 {
     class BikeRentalDBModel : DbContext
     {
-        public BikeRentalDBModel()
+        public BikeRentalDBModel() : base("name=BikeStoreContext")
         {
             this.Configuration.ProxyCreationEnabled = false;
         }

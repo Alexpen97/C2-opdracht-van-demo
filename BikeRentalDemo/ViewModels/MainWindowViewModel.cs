@@ -18,6 +18,8 @@ namespace BikeRentalDemo.ViewModels
 
         public ObservableCollection<Reservation> Reservations { get; set; }
 
+        public ObservableCollection<Bike> SelectedBikeList { get; set; }
+
         public Store SelectedStore { get; set; }
         public Bike SelectedBike { get; set; }
         public Customer SelectedCustomer { get; set; }
@@ -52,9 +54,6 @@ namespace BikeRentalDemo.ViewModels
             Stores = db.Stores.Local;
             Customers = db.Customers.Local;
             Reservations = db.Reservations.Local;
-
-         
-         
            
             DeleteStoreClick = new RelayCommand(DeleteStore); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder            OpenBikeAdminClick = new RelayCommand(OpenBikeAdmin); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder
             DeleteCustomerClick = new RelayCommand(DeleteCustomer);
@@ -66,12 +65,11 @@ namespace BikeRentalDemo.ViewModels
             CreateBikeClick = new RelayCommand(CreateBike);
             CreateStoreClick = new RelayCommand(CreateStore);
 
-           
-           
             EditCustomersClick = new RelayCommand(OpenCustomerAdmin);
             EditStoresClick = new RelayCommand(OpenStoreAdmin);
             EditBikesClick = new RelayCommand(OpenBikeAdmin);
 
+            
         }
 
         public void DeleteStore(object store)
@@ -107,7 +105,6 @@ namespace BikeRentalDemo.ViewModels
         {
             Reservation newReservation = new Reservation();
             newReservation.Customer = SelectedCustomer;
-            newReservation.Bike = SelectedBike;
             CreateReservationViewModel VM = new CreateReservationViewModel(newReservation, db);
 
             CreateReservation view = new CreateReservation();
@@ -123,11 +120,12 @@ namespace BikeRentalDemo.ViewModels
         }
         public void CreateBike(object o)
         {
+            /*
             if(SelectedStore != null) { 
             Bike newBike = new Bike();
             SelectedStore.Bikes.Add(newBike);
             db.SaveChanges();
-}
+}*/
         }
         public void CreateStore(object o)
         {
@@ -153,7 +151,16 @@ namespace BikeRentalDemo.ViewModels
         }
         public void OpenBikeAdmin(object o)
         {
-            BikesEditViewModel VM = new BikesEditViewModel(db,SelectedStore.Bikes);
+            SelectedBikeList = new ObservableCollection<Bike>();
+
+            foreach (Bike bike in Bikes){
+                if(SelectedStore == bike.InStore){
+
+                SelectedBikeList.Add(bike);
+                }
+            }
+            BikesEditViewModel VM = new BikesEditViewModel(db,SelectedBikeList,SelectedStore);
+
             BikesEdit view = new BikesEdit();
             view.DataContext = VM;
             view.Show();

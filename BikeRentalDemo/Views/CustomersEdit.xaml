@@ -10,6 +10,7 @@
         <Grid>
             <DataGrid ItemsSource="{Binding Customers}" Margin="0,0,0.4,48.6" />
             <Button Command="{Binding SaveClick}" Content="Save" HorizontalAlignment="Left" Margin="10,0,0,9.6" VerticalAlignment="Bottom" Width="75"/>
+           
 
         </Grid>
     </Grid>

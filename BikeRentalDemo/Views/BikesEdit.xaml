@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="BikesEdit" Height="450" Width="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding Bikes}" Margin="0,0,0.4,48.6" />
+        <DataGrid ItemsSource="{Binding Bikes}" Margin="0,0,0.4,48.6" SelectedItem="{Binding SelectedBike}" />
         <Button Command="{Binding SaveClick}" Content="Save" HorizontalAlignment="Left" Margin="10,0,0,9.6" VerticalAlignment="Bottom" Width="75"/>
+        <Button Command="{Binding CreateBike}" Content="Create Bike" HorizontalAlignment="Left" Margin="106,0,0,10" VerticalAlignment="Bottom" Width="107"/>
+        <Button Command="{Binding DeleteBike}" Content="Delete Bike" HorizontalAlignment="Left" Margin="231,0,0,10" VerticalAlignment="Bottom" Width="107"/>
     </Grid>
 </Window>

@@ -11,7 +11,9 @@ namespace BikeRentalDemo.Model
     public class Reservation
     {
         public int ID { get; set; }
+        public int CustomerID  {get; set;}
         public virtual Customer Customer { get; set; }
+        public int BikeID {get;set;}
         public virtual Bike Bike { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

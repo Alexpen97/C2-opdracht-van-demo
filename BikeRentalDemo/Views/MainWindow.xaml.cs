@@ -10,5 +10,10 @@ namespace BikeRentalDemo.Views
             DataContext = new MainWindowViewModel();
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

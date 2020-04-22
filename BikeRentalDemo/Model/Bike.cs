@@ -7,6 +7,7 @@
     {
 
         public int ID { get; set; }
+        public int InStoreID {get;set;}
         public Store InStore { get; set; }
         public BikeType Type { get; set; }
         public BikeGender Gender { get; set; }

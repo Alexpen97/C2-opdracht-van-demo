@@ -118,6 +118,18 @@
     <Compile Include="Migrations\202004211243365_added virtual propertys.designer.cs">
       <DependentUpon>202004211243365_added virtual propertys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004220808425_added extra ID%27s.cs" />
+    <Compile Include="Migrations\202004220808425_added extra ID%27s.designer.cs">
+      <DependentUpon>202004220808425_added extra ID%27s.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004220844520_remove inStoreID.cs" />
+    <Compile Include="Migrations\202004220844520_remove inStoreID.designer.cs">
+      <DependentUpon>202004220844520_remove inStoreID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004221346528_add instoreID.cs" />
+    <Compile Include="Migrations\202004221346528_add instoreID.designer.cs">
+      <DependentUpon>202004221346528_add instoreID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BikeRentalDBModel.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -208,6 +220,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004211243365_added virtual propertys.resx">
       <DependentUpon>202004211243365_added virtual propertys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004220808425_added extra ID%27s.resx">
+      <DependentUpon>202004220808425_added extra ID%27s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004220844520_remove inStoreID.resx">
+      <DependentUpon>202004220844520_remove inStoreID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004221346528_add instoreID.resx">
+      <DependentUpon>202004221346528_add instoreID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

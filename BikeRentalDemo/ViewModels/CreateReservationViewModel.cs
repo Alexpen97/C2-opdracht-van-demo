@@ -13,13 +13,12 @@ namespace BikeRentalDemo.ViewModels
         public ObservableCollection<Bike> Bikes { get; set; } 
         public ObservableCollection<Store> Stores { get; set; }
         public ObservableCollection<Reservation> Reservations { get; set; }
-        public IList<Bike> BikesList { get; set; }
 
         public Reservation Reservation;
 
         public Store DropOffStore { get; set; }
         public Store PickUpStore { get; set; }
-        public ObservableCollection<Bike> SelectedBike { get; set; }
+        public Bike SelectedBike { get; set; }
        
         public DateTime EndDate { get; set; }
         public DateTime StartDate { get; set; }
@@ -52,6 +51,9 @@ namespace BikeRentalDemo.ViewModels
             Reservation.PickUp = PickUpStore;
             Reservation.StartDate = StartDate;
             Reservation.EndDate = EndDate;
+            Reservation.Bike = SelectedBike;
+            Reservation.CustomerID = Reservation.Customer.ID;
+            Reservation.BikeID = SelectedBike.ID;
             Db.Reservations.Add(Reservation);
             Db.SaveChanges();
 

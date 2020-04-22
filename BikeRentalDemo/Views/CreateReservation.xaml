@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BikeRentalDemo.Views"
         mc:Ignorable="d"
-        Title="CreateReservation" Height="333.27" Width="434.587">
+        Title="CreateReservation" Height="333.27" Width="776.316">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="29*"/>
@@ -20,7 +20,9 @@
         <DatePicker SelectedDate="{Binding EndDate}" HorizontalAlignment="Left" Margin="139,21,0,0" VerticalAlignment="Top" Height="29" Width="108" Grid.Row="1"/>
         <DatePicker SelectedDate="{Binding StartDate}" HorizontalAlignment="Left" Margin="139,16,0,0" VerticalAlignment="Top" Height="29" Width="108" Grid.RowSpan="2"/>
         <Label Content="EndDate:" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="24" Width="71" Grid.Row="1"/>
-        <Button Content="Create" Command="{Binding CreateReservationClick}" HorizontalAlignment="Left" Margin="342,65,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.466,0.967" Click="Button_Click" Grid.Row="2"/>
+        <Button Content="Create" Command="{Binding CreateReservationClick}" HorizontalAlignment="Left" Margin="683,65,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.466,0.967" Click="Button_Click" Grid.Row="2"/>
+        <ListBox DisplayMemberPath="Type" ItemsSource="{Binding Bikes}" SelectedItem="{Binding SelectedBike}" HorizontalAlignment="Left" Height="156" Margin="354,94,0,0" VerticalAlignment="Top" Width="142" Grid.RowSpan="2" Grid.Row="1"/>
+        <Label Content="Select a bike" HorizontalAlignment="Left" Margin="354,71,0,0" VerticalAlignment="Top" Height="24" Width="85" RenderTransformOrigin="0.379,-1.643" Grid.Row="1"/>
 
     </Grid>
 </Window>
