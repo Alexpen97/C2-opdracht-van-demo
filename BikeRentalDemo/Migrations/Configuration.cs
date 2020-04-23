@@ -27,9 +27,9 @@
                 );
             context.Bikes.AddOrUpdate(
                 new Model.Bike { ID = 1, Brand = "testbrand", DailyRate = 10, HourRate = 10, Gender = Model.BikeGender.Female, Size = Model.BikeSize.Large, Type = Model.BikeType.Flaafy, InStore = context.Stores.Find(1), InStoreID = 1 },
-                 new Model.Bike { ID = 2, Brand = "testbrand", DailyRate = 10, HourRate = 10, Gender = Model.BikeGender.Female, Size = Model.BikeSize.Large, Type = Model.BikeType.Flaafy, InStore = context.Stores.Find(1), InStoreID = 1 });
+                new Model.Bike { ID = 2, Brand = "testbrand", DailyRate = 10, HourRate = 10, Gender = Model.BikeGender.Female, Size = Model.BikeSize.Large, Type = Model.BikeType.Flaafy, InStore = context.Stores.Find(1), InStoreID = 1 });
             context.Reservations.AddOrUpdate(
-                new Model.Reservation { Bike = context.Bikes.Find(1), BikeID = 1, Customer = context.Customers.Find(1), CustomerID = 1, DropOff = context.Stores.Find(1), PickUp = context.Stores.Find(2), EndDate = new DateTime(2020,11,11), StartDate = new DateTime(2020,11,11), ID=1}
+                new Model.Reservation { Bike = context.Bikes.Find(1), BikeID = 1, Customer = context.Customers.Find(1), CustomerID = 1, DropOff = context.Stores.Find(1), PickUp = context.Stores.Find(2), EndDate = new DateTime(2020,11,11), StartDate = new DateTime(2020,11,11), ID=1,TotalPrice=20}
                 );
 
         }

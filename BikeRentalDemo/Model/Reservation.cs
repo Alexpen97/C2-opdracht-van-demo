@@ -19,6 +19,6 @@ namespace BikeRentalDemo.Model
         public DateTime EndDate { get; set; }
         public virtual Store PickUp { get; set; }
         public virtual Store DropOff { get; set; }
-   
+        public double TotalPrice { get; set; }
     }
 }

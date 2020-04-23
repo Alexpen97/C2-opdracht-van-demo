@@ -130,6 +130,10 @@
     <Compile Include="Migrations\202004221346528_add instoreID.designer.cs">
       <DependentUpon>202004221346528_add instoreID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004230717370_added totalprice value.cs" />
+    <Compile Include="Migrations\202004230717370_added totalprice value.designer.cs">
+      <DependentUpon>202004230717370_added totalprice value.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BikeRentalDBModel.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -229,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004221346528_add instoreID.resx">
       <DependentUpon>202004221346528_add instoreID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004230717370_added totalprice value.resx">
+      <DependentUpon>202004230717370_added totalprice value.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

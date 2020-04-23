@@ -1,8 +1,5 @@
 ﻿namespace BikeRentalDemo.Model
 {
-    /* Inheritance hebben we (nog) niet behandeld, maar hier gebruiken we inheritance om
-     * alle INotifyPropertyChanged rotzooi weg te stoppen in de class BikeRentalModel
-     */
     public class Bike 
     {
 

@@ -11,8 +11,8 @@ namespace BikeRentalDemo.ViewModels
     public class MainWindowViewModel
     {
         private BikeRentalDBModel db = new BikeRentalDBModel();
-        public ObservableCollection<Bike> Bikes { get; set; } // Een centrale lijst van alle bikes die er zijn in alle stores. (later komt dit in een database)
-        public ObservableCollection<Store> Stores { get; set; } // Een centrale lijst van alle stores die er zijn. (later komt dit in een database)
+        public ObservableCollection<Bike> Bikes { get; set; } 
+        public ObservableCollection<Store> Stores { get; set; }
 
         public ObservableCollection<Customer> Customers { get; set; }
 
@@ -27,8 +27,8 @@ namespace BikeRentalDemo.ViewModels
 
 
        
-        public ICommand DeleteStoreClick { get; set; } // De koppeling met de Command-binding van de Delete-knoppen in het Store-overzicht
-        public ICommand CreateStoreClick { get; set; } // De koppeling met de Command-binding van de "+"-knop
+        public ICommand DeleteStoreClick { get; set; }
+        public ICommand CreateStoreClick { get; set; } 
         public ICommand EditStoresClick { get; set; }
 
         public ICommand DeleteCustomerClick { get; set; }
@@ -37,13 +37,11 @@ namespace BikeRentalDemo.ViewModels
 
         public ICommand EditBikesClick { get; set; }
         public ICommand DeleteBikeClick { get; set; }
-        public ICommand CreateBikeClick { get; set; }
-
 
         public ICommand CreateReservationClick { get; set; }
         public ICommand DeleteReservationClick { get; set; }
              
-        public MainWindowViewModel() // De constructor van de Class
+        public MainWindowViewModel()
         {
             db.Bikes.Load();
             db.Stores.Load();
@@ -55,14 +53,13 @@ namespace BikeRentalDemo.ViewModels
             Customers = db.Customers.Local;
             Reservations = db.Reservations.Local;
            
-            DeleteStoreClick = new RelayCommand(DeleteStore); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder            OpenBikeAdminClick = new RelayCommand(OpenBikeAdmin); // met behulp van RelayCommand geven we de koppeling door aan de functie hieronder
+            DeleteStoreClick = new RelayCommand(DeleteStore);
             DeleteCustomerClick = new RelayCommand(DeleteCustomer);
             DeleteBikeClick = new RelayCommand(DeleteBike);
             DeleteReservationClick = new RelayCommand(DeleteReservation);
 
             CreateCustomerClick = new RelayCommand(CreateCustomer);
             CreateReservationClick = new RelayCommand(CreateReservation);
-            CreateBikeClick = new RelayCommand(CreateBike);
             CreateStoreClick = new RelayCommand(CreateStore);
 
             EditCustomersClick = new RelayCommand(OpenCustomerAdmin);
@@ -118,15 +115,7 @@ namespace BikeRentalDemo.ViewModels
             db.Customers.Add(newCustomer);
             db.SaveChanges();
         }
-        public void CreateBike(object o)
-        {
-            /*
-            if(SelectedStore != null) { 
-            Bike newBike = new Bike();
-            SelectedStore.Bikes.Add(newBike);
-            db.SaveChanges();
-}*/
-        }
+
         public void CreateStore(object o)
         {
             Store newStore = new Store();
